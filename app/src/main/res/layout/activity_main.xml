@@ -25,17 +25,8 @@
         android:layout_height="wrap_content"
         android:text="Bluetooth off"
         android:id="@+id/bOff"
-        android:layout_above="@+id/bVisible"
-        android:onClick="off"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get Discoverable Devices"
-        android:id="@+id/bVisible"
         android:layout_above="@+id/bList"
-        android:onClick="visible"/>
+        android:onClick="off"/>
 
     <Button
         android:layout_width="wrap_content"

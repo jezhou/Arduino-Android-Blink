@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -17,7 +18,7 @@ import java.util.Set;
 
 public class MainActivity extends ActionBarActivity {
 
-    private Button bOn,bOff,bVisible,bList;
+    private Button bOn,bOff,bList;
     private BluetoothAdapter btAdapter;
     private Set<BluetoothDevice> pairedDevices;
     private ListView listView;
@@ -33,9 +34,7 @@ public class MainActivity extends ActionBarActivity {
     public void init(){
         bOn = (Button)findViewById(R.id.bOn);
         bOff = (Button)findViewById(R.id.bOff);
-        bVisible = (Button)findViewById(R.id.bVisible);
         bList = (Button)findViewById(R.id.bList);
-
         listView = (ListView)findViewById(R.id.listView);
 
         btAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -53,23 +52,26 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    public void visible(View view){
-        Intent getVisible = new Intent(BluetoothAdapter.
-                ACTION_REQUEST_DISCOVERABLE);
-        startActivityForResult(getVisible, 0);
-
-    }
-
     public void list(View view){
         pairedDevices = btAdapter.getBondedDevices();
 
         ArrayList list = new ArrayList();
-        for(BluetoothDevice bt : pairedDevices)
-            list.add(bt.getName() + "\n" + bt.getAddress());
+        for(BluetoothDevice bt : pairedDevices) {
+            list.add(bt.getName() + "\n" + bt.getAddress() + "\n" + bt.getUuids());
+
+        }
 
         Toast.makeText(getApplicationContext(),"Showing Paired Devices", Toast.LENGTH_SHORT).show();
         final ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int newline = adapter.getItem(position).toString().indexOf('\n');
+                System.out.println(adapter.getItem(position).toString().substring(newline + 1));
+            }
+        });
 
     }
 
