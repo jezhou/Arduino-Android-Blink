@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bluetooth Test Application"
+        android:id="@+id/title"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignParentTop="true"/>
 
@@ -17,7 +18,7 @@
         android:layout_height="wrap_content"
         android:text="Bluetooth On"
         android:id="@+id/bOn"
-        android:layout_above="@+id/bOff"
+        android:layout_below="@+id/title"
         android:onClick="on"/>
 
     <Button
@@ -25,7 +26,7 @@
         android:layout_height="wrap_content"
         android:text="Bluetooth off"
         android:id="@+id/bOff"
-        android:layout_above="@+id/bList"
+        android:layout_below="@+id/bOn"
         android:onClick="off"/>
 
     <Button
@@ -33,16 +34,31 @@
         android:layout_height="wrap_content"
         android:text="List all devices"
         android:id="@+id/bList"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/bOff"
         android:onClick="list"/>
 
     <ListView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:id="@+id/listView"
-        android:layout_below="@id/bList"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="false" />
+        android:layout_alignParentTop="false"
+        android:layout_below="@id/bList"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turn light on"
+        android:id="@+id/bLightOn"
+        android:layout_below="@id/listView"
+        android:onClick="sendOnByte"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turn light off"
+        android:id="@+id/bLightOff"
+        android:layout_below="@id/bLightOn"
+        android:onClick="sendOffByte"/>
 
 
 </RelativeLayout>
