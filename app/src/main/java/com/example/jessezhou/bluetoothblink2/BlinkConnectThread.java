@@ -10,7 +10,7 @@ import java.util.UUID;
 /**
  * Created by Jesse Zhou on 12/26/2014.
  */
-public class ConnectThread extends Thread{
+public class BlinkConnectThread extends Thread{
 
     // Bluetooth Serial UUID (needed for connection). The UUID should be
     // almost universal for all BT serial boards
@@ -23,7 +23,7 @@ public class ConnectThread extends Thread{
     // Handler for main thread
     private Handler handler;
 
-    public ConnectThread(BluetoothDevice remote, Handler uiHandler){
+    public BlinkConnectThread(BluetoothDevice remote, Handler uiHandler){
         btDev = remote;
         handler = uiHandler;
 
@@ -48,7 +48,17 @@ public class ConnectThread extends Thread{
             handler.obtainMessage(Constants.BLUETOOTH_CONNECT, Constants.CONNECTION_FAILED, -1)
                     .sendToTarget();
         }
+
     }
 
-    public void cancel(){}
+    public BluetoothSocket getBTSocket(){
+        return btSocket;
+    }
+
+    public void cancel(){
+        try {
+            btSocket.close();
+        }
+        catch(IOException e){}
+    }
 }

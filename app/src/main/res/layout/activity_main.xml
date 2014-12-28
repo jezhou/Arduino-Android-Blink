@@ -48,17 +48,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Turn light on"
-        android:id="@+id/bLightOn"
+        android:text="Hold to turn light on"
+        android:id="@+id/blinkButton"
         android:layout_below="@id/listView"
         android:onClick="sendOnByte"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Turn light off"
-        android:id="@+id/bLightOff"
-        android:layout_below="@id/bLightOn"
-        android:onClick="sendOffByte"/>
+
 
 
 </RelativeLayout>

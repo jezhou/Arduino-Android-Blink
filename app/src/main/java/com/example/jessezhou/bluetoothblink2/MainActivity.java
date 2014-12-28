@@ -2,11 +2,13 @@ package com.example.jessezhou.bluetoothblink2;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,7 +25,7 @@ public class MainActivity extends ActionBarActivity {
 
     // UI elements
     private ListView listView;
-    private Button bOn,bOff,bList;
+    private Button blinkButton, bList;
 
     //Bluetooth elements
     private BluetoothAdapter btAdapter;
@@ -42,8 +44,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void init(){
-        bOn = (Button)findViewById(R.id.bOn);
-        bOff = (Button)findViewById(R.id.bOff);
+        blinkButton = (Button)findViewById(R.id.blinkButton);
         bList = (Button)findViewById(R.id.bList);
         listView = (ListView)findViewById(R.id.listView);
 
@@ -54,15 +55,13 @@ public class MainActivity extends ActionBarActivity {
             public void handleMessage(Message msg) {
                 switch(msg.what){
                     case Constants.BLUETOOTH_CONNECT:
-                        System.out.println(msg.arg1);
                         if(msg.arg1 == Constants.CONNECTION_SUCCESS){
-                            Toast.makeText(getApplicationContext(), "It worked!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Connection worked!", Toast.LENGTH_SHORT).show();
                             System.out.println("Handler is working");
                         }
                         else if(msg.arg1 == Constants.CONNECTION_FAILED){
                             Toast.makeText(getApplicationContext(), "Connection failed", Toast.LENGTH_SHORT).show();
                         }
-
                 }
             }
         };
@@ -81,6 +80,11 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    public void off(View view){
+        btAdapter.disable();
+        Toast.makeText(getApplicationContext(), "Bluetooth Off", Toast.LENGTH_LONG).show();
+    }
+
     public void list(View view){
         pairedDevices = btAdapter.getBondedDevices();
 
@@ -97,50 +101,37 @@ public class MainActivity extends ActionBarActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                BluetoothDevice tmp = (BluetoothDevice)btArray[position];
-                System.out.println(tmp);
-                ConnectThread connectDrawbot = new ConnectThread(tmp, handler);
-                connectDrawbot.start();
+                BluetoothSocket btSocket = connect((BluetoothDevice) btArray[position]);
+                startCommand(btSocket);
             }
         });
 
     }
 
-    public void off(View view){
-        btAdapter.disable();
-        Toast.makeText(getApplicationContext(), "Bluetooth Off", Toast.LENGTH_LONG).show();
+    private synchronized BluetoothSocket connect(BluetoothDevice tmp){
+        Toast.makeText(getApplicationContext(), "Connecting...", Toast.LENGTH_LONG).show();
+        BlinkConnectThread connectBlink = new BlinkConnectThread(tmp, handler);
+        connectBlink.start();
+        return connectBlink.getBTSocket();
     }
 
-    /*
-    public void sendOnByte(View view){
-        if(!btSocket.isConnected()){
-            Toast.makeText(getApplicationContext(), "Connect your shit first", Toast.LENGTH_SHORT).show();
-            return;
-        }
+    private synchronized void startCommand(BluetoothSocket btSocket){
+        final BlinkCommand controller = new BlinkCommand(btSocket);
+        blinkButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        controller.blinkOn();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        controller.blinkOff();
+                        break;
+                }
 
-        try {
-            sender = btSocket.getOutputStream();
-            sender.write(1);
-            sender.flush();
-        }
-        catch(IOException e){}
-
+                return true;
+            }
+        });
     }
-
-    public void sendOffByte(View view){
-        if(!btSocket.isConnected()){
-            Toast.makeText(getApplicationContext(), "Connect your shit first", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        try {
-            sender = btSocket.getOutputStream();
-            sender.write(0);
-            sender.flush();
-        }
-        catch(IOException e){}
-
-    }
-    */
 
 }

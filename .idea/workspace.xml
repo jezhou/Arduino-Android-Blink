@@ -45,24 +45,39 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63309354" vertical-offset="688" max-vertical-offset="2584">
-              <caret line="56" column="51" selection-start-line="56" selection-start-column="51" selection-end-line="56" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.16966581" vertical-offset="1991" max-vertical-offset="2431">
+              <caret line="121" column="35" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1419#2186#0" expanded="true" />
+                <element signature="e#1466#2186#0" expanded="true" />
                 <element signature="e#2175#2176#0" expanded="true" />
-                <element signature="e#3219#3634#0" expanded="true" />
-                <element signature="e#3623#3624#0" expanded="true" />
+                <element signature="e#3379#3688#0" expanded="true" />
+                <element signature="e#3677#3678#0" expanded="true" />
+                <element signature="e#4672#4673#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConnectThread.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/ConnectThread.java">
+      <file leaf-file-name="BlinkConnectThread.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/BlinkConnectThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="246" max-vertical-offset="1020">
-              <caret line="34" column="94" selection-start-line="34" selection-start-column="94" selection-end-line="34" selection-end-column="94" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1190">
+              <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1582#1583#0" expanded="true" />
+                <element signature="e#1613#1614#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlinkCommand.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/BlinkCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="59" max-vertical-offset="731">
+              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,8 +111,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.814815" vertical-offset="755" max-vertical-offset="1190">
-              <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+            <state vertical-scroll-proportion="-7.037037" vertical-offset="711" max-vertical-offset="1088">
+              <caret line="53" column="35" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="35" />
               <folding>
                 <element signature="e#223#258#0" expanded="true" />
                 <element signature="e#284#319#0" expanded="true" />
@@ -674,10 +689,13 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/BluetoothDrawbotService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/DrawbotConnectThread.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/Constants.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/ConnectThread.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/BlinkConnectThread.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/BlinkCommandThread.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/BlinkCommand.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -953,7 +971,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="0" width="1400" height="860" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -962,7 +980,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36789772" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1012,10 +1030,11 @@
           <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1419#2186#0" expanded="true" />
+            <element signature="e#1466#2186#0" expanded="true" />
             <element signature="e#2175#2176#0" expanded="true" />
-            <element signature="e#3219#3634#0" expanded="true" />
-            <element signature="e#3623#3624#0" expanded="true" />
+            <element signature="e#3379#3688#0" expanded="true" />
+            <element signature="e#3677#3678#0" expanded="true" />
+            <element signature="e#4672#4673#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1044,18 +1063,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/BlinkConnectThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.814815" vertical-offset="755" max-vertical-offset="1190">
-          <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1190">
+          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
           <folding>
-            <element signature="e#223#258#0" expanded="true" />
-            <element signature="e#284#319#0" expanded="true" />
-            <element signature="e#343#376#0" expanded="true" />
-            <element signature="e#403#436#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1582#1583#0" expanded="true" />
+            <element signature="e#1613#1614#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1076,10 +1091,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/ConnectThread.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="246" max-vertical-offset="1020">
-          <caret line="34" column="94" selection-start-line="34" selection-start-column="94" selection-end-line="34" selection-end-column="94" />
+        <state vertical-scroll-proportion="-7.037037" vertical-offset="711" max-vertical-offset="1088">
+          <caret line="53" column="35" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="35" />
+          <folding>
+            <element signature="e#223#258#0" expanded="true" />
+            <element signature="e#284#319#0" expanded="true" />
+            <element signature="e#343#376#0" expanded="true" />
+            <element signature="e#403#436#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/BlinkCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="59" max-vertical-offset="731">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1088,14 +1119,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jessezhou/bluetoothblink2/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63309354" vertical-offset="688" max-vertical-offset="2584">
-          <caret line="56" column="51" selection-start-line="56" selection-start-column="51" selection-end-line="56" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.16966581" vertical-offset="1991" max-vertical-offset="2431">
+          <caret line="121" column="35" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1419#2186#0" expanded="true" />
+            <element signature="e#1466#2186#0" expanded="true" />
             <element signature="e#2175#2176#0" expanded="true" />
-            <element signature="e#3219#3634#0" expanded="true" />
-            <element signature="e#3623#3624#0" expanded="true" />
+            <element signature="e#3379#3688#0" expanded="true" />
+            <element signature="e#3677#3678#0" expanded="true" />
+            <element signature="e#4672#4673#0" expanded="true" />
           </folding>
         </state>
       </provider>
